@@ -73,6 +73,11 @@
         }
 
         .genres {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                column-gap: 10px;
+                row-gap: 10px;
             & > * ~ * {
                 margin-left: 0.5rem;
             }

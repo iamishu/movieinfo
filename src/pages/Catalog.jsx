@@ -6,6 +6,7 @@ import PageHeader from '../components/page-header/PageHeader';
 
 import { category as cate } from '../api/tmdbApi';
 import MovieGrid from '../components/movie-grid/MovieGrid';
+import PersonGrid from '../components/person-grid/PersonGrid';
 
 const Catalog = () => {
 
@@ -14,11 +15,13 @@ const Catalog = () => {
     return (
         <>
             <PageHeader>
-                {category === cate.movie ? 'Movies' : 'TV Series'}
+                {category === cate.movie ? 'Movies' : category === cate.tv ? 'TV Series' : 'Person'}
             </PageHeader>
             <div className="container">
                 <div className="section mb-3">
-                    <MovieGrid category={category}/>
+                    {category === cate.person ? (
+                        <PersonGrid category={category} />
+                    ) : ( <MovieGrid category={category}/> )}
                 </div>
             </div>
         </>
